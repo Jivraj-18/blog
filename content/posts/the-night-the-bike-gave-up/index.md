@@ -64,7 +64,7 @@ It worked.
 
 ## The anxiety experiment <span class="clock">1:19 → 1:26 am</span>
 
-The bike got us to within a few hundred metres of home. Then, instead of turning in, we rode the other way. I wanted to see how anxious I'd get as home got further away, on a bike that had just failed us. The worry grew roughly in step with the distance, and at what felt like 2 km we turned back.
+The bike got us to within a few hundred metres of home. Then, instead of turning in, we rode the other way. I wanted to see how anxious I'd get as home got further away, on a bike that had just failed us. Every extra bit of distance added the same extra bit of worry: twice as far, twice as anxious. At what felt like 2 km, it was too much, and we turned back.
 
 <figure class="wide">
   <p class="fig-title">How far from home we were, all night</p>
