@@ -13,7 +13,7 @@ This is my first blog post, and I wanted it to be about something that actually 
 
 ## Dinner at 7 Sisters <span class="clock">9:54 → 10:57 pm</span>
 
-Sai and I were planning to eat out somewhere. Earlier that day I'd been at my friend Devam's place, and her parents told me 7 Sisters is a good restaurant. We found the one in Prism Mall, Gachibowli, and headed out.
+Sai and I were planning to eat out somewhere. A few weeks earlier, on 11 October, I'd spent the afternoon and the night at my friend Devam's place near Manikonda, and Devam's parents had told me 7 Sisters is a good restaurant. We found the one in Prism Mall, Gachibowli, and headed out.
 
 I'd have told you we left around 9:30 and got there around 10:15. The phone says we left at **9:54** and parked at **10:09**, a 15-minute ride. I was off by twenty minutes in one direction and six in the other.
 
