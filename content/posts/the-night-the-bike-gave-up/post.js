@@ -14,11 +14,12 @@
   /* ---------- map ---------- */
   function drawMap(track) {
     const map = L.map('map', { scrollWheelZoom: false, attributionControl: true });
-    const tiles = dark() ? 'dark_all' : 'light_all';
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/' + tiles + '/{z}/{x}/{y}{r}.png', {
-      maxZoom: 18, subdomains: 'abcd',
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    // OpenStreetMap's own tiles: free, no API key. Darkened with a CSS filter in dark mode.
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+    if (dark()) document.getElementById('map').classList.add('map-dark');
     const group = ph => ph === 'push' || ph === 'legpush' || ph === 'pump' ? 'human' : ph === 'experiment' ? 'loop' : ph === 'restaurant' ? null : 'engine';
     const color = { engine: css('--engine'), human: css('--human'), loop: css('--loop') };
     const segs = []; let cur = null;
@@ -42,7 +43,10 @@
       L.circleMarker([la, ln], { radius: 6, color: css('--surface'), weight: 2, fillColor: css('--ink'), fillOpacity: 1 })
         .bindTooltip('<b>' + title + '</b><br>' + sub, { className: 'stop' }).addTo(map);
     });
-    map.fitBounds(L.latLngBounds(all).pad(0.06));
+    const fit = () => { map.invalidateSize(); map.fitBounds(L.latLngBounds(all).pad(0.06)); };
+    fit();
+    addEventListener('load', fit);
+    new ResizeObserver(fit).observe(document.getElementById('map'));
   }
 
   /* ---------- shared chart helpers ---------- */

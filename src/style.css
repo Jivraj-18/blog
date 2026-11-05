@@ -164,3 +164,6 @@ a.tag:hover { color: var(--accent); }
 .chip.on span { color: var(--bg); opacity: .7; }
 .status { font-family: var(--sans); font-size: .85rem; color: var(--ink-3); margin: .8rem 0 0; min-height: 1.2em; }
 mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: inherit; border-radius: 2px; padding: 0 1px; }
+
+/* Dark mode for OpenStreetMap tiles (they only come in light). */
+#map.map-dark .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6); }
