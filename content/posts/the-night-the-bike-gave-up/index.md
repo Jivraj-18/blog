@@ -9,7 +9,7 @@ styles: ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"]
 scripts: ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js", "post.js"]
 ---
 
-This post has two sources. **The story comes from my memory. The times, distances and speeds come from my Google Maps Timeline**, which I exported from my phone and went through in Python. Wherever the two disagree, you'll see both.
+This post has two sources. **The story comes from my memory. The times, distances and speeds come from my Google Maps Timeline**, which quietly tracked the whole night on my phone. Wherever the two disagree, you'll see both.
 
 ## Dinner at 7 Sisters <span class="clock">9:54 → 10:57 pm</span>
 
@@ -41,7 +41,7 @@ We skipped the junk-food stalls and rode along the lake. A stranger was setting 
 
 About 12 km from home, the bike died. Restart, 100–200 m, dead. Three or four times, then nothing. So we pushed.
 
-> **Memory:** "12 or 12:30-ish". **Timeline:** trouble started around 12:17, and at 12:19:45 the phone logged an `EXITING_VEHICLE` event, the moment we got off. While we pushed, GPS recorded 3.4–4.6 km/h, which is walking pace.
+> **Memory:** "12 or 12:30-ish". **Timeline:** trouble started around 12:17, and at 12:19 my phone even noted the moment we got off the bike. While we pushed, we were moving at about 4 km/h, plain walking pace.
 
 A man on a Bullet asked if we'd run out of petrol. We hadn't, and he rode on. Then a food-delivery rider offered to push our bike with his leg, and he pushed us all the way to a petrol pump.
 
@@ -49,9 +49,9 @@ A man on a Bullet asked if we'd run out of petrol. We hadn't, and he rode on. Th
 
 <figure class="wide">
   <p class="fig-title">Speed after the breakdown</p>
-  <p class="fig-sub">GPS speed, km/h, 12:15–1:30 am. Shaded bands are what was happening.</p>
+  <p class="fig-sub">How fast we were moving (km/h), 12:15–1:30 am.</p>
   <div class="chart" id="speed-chart"></div>
-  <figcaption>GPS speed from my Timeline. Single readings are noisy; the gap before 12:29 is when the phone had no GPS fix.</figcaption>
+  <figcaption>From my Timeline. Walking pace while pushing, a surprising 20-ish with a stranger's leg, then the engine again.</figcaption>
 </figure>
 
 ## Blow into the tank <span class="clock">12:54 → 1:04 am</span>
@@ -88,6 +88,6 @@ The bike got us to within a few hundred metres of home. Then, instead of turning
 
 My times drifted towards neater numbers. My distances were longer than the straight-line ones, which makes sense on roads. And the things only memory had are the ones no phone logs: the fake urgency, the boxes in the lake, a stranger offering his leg.
 
-## How I made this
+## If you want to try this
 
-I exported my Timeline from the phone (Maps → *Your Timeline* → ⋮ → *Location & privacy settings* → *Export Timeline data*), which gives one JSON file. For this night it held about 190 location fixes and 500 activity readings. Speed separated the phases cleanly: about 4 km/h is pushing, about 20 km/h is a stranger's leg, and 25–45 km/h is a working engine. The area around home is removed from the [track data](track.json).
+Your phone probably remembers your nights better than you do. On Android: Google Maps → *Your Timeline* → ⋮ → *Location & privacy settings* → *Export Timeline data*. Then sit with a friend and compare it against what you remember. (The area around our home is left out of the map here.)
