@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import crypto from 'node:crypto';
 
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
 const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'site.config.json'), 'utf8'));
@@ -52,7 +53,7 @@ const layout = ({ title, description, head = '', body, scripts = '' }) => `<!doc
 <link rel="alternate" type="application/rss+xml" title="${esc(cfg.title)}" href="${BASE}/feed.xml">
 ${fonts}
 ${head}
-<link rel="stylesheet" href="${BASE}/assets/style.css">
+<link rel="stylesheet" href="${BASE}/assets/style.css?v=${ver(path.join(ROOT, 'src/style.css'))}">
 </head>
 <body>
 <header class="site-head">
@@ -74,7 +75,9 @@ for (const f of fs.readdirSync(path.join(ROOT, 'src'))) fs.copyFileSync(path.joi
 fs.copyFileSync(path.join(ROOT, 'node_modules/fuse.js/dist/fuse.min.mjs'), path.join(OUT, 'assets/fuse.min.mjs'));
 fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 
-const asset = (u, slug) => /^https?:/.test(u) ? u : `${BASE}/posts/${slug}/${u}`;
+// Local files get ?v=<content hash>, so browsers fetch the new version as soon as it changes.
+const ver = file => crypto.createHash('sha1').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+const asset = (u, slug) => /^https?:/.test(u) ? u : `${BASE}/posts/${slug}/${u}?v=${ver(path.join(postsDir, slug, u))}`;
 
 for (const p of posts) {
   const out = path.join(OUT, 'posts', p.slug);
@@ -115,7 +118,7 @@ const home = `<main>
 </main>`;
 fs.writeFileSync(path.join(OUT, 'index.html'), layout({
   title: cfg.title, description: cfg.description, body: home,
-  scripts: `<script type="module" src="${BASE}/assets/search.js"></script>`
+  scripts: `<script type="module" src="${BASE}/assets/search.js?v=${ver(path.join(ROOT, 'src/search.js'))}"></script>`
 }));
 
 // Search index: everything the browser needs to fuzzy-search without a server.
